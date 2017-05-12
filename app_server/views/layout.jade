@@ -5,9 +5,15 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     nav
+      .logo
+        a(href='/') Loc8r
       ul.nav-items
         li.nav-item
           a(href='/about') About
+      .mobile-menu
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
 
     main.main-content
       block content
