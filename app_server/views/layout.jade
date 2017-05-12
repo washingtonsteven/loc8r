@@ -4,4 +4,17 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    nav
+      ul.nav-items
+        li.nav-item
+          a(href='/about') About
+
+    main.main-content
+      block content
+
+    footer
+      span.copy
+        Copyright &copy; Steve Washington 2017 (but not really cause this comes from a book)
+
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+    script(src='/js/main.js')

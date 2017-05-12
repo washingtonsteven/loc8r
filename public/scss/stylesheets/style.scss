@@ -1,4 +1,8 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 
+@import "var";
 @import "global";
+
+//views
+@import "views/homelist";
