@@ -6,7 +6,7 @@
  * 2. Prevent adjustments of font size after orientation changes in
  *    IE on Windows Phone and in iOS.
  */
-@import url("https://fonts.googleapis.com/css?family=Lemonada");
+@import url("https://fonts.googleapis.com/css?family=Lobster");
 html {
   line-height: 1.15;
   /* 1 */
@@ -412,7 +412,7 @@ a {
 
 h1 {
   font-size: 50px;
-  font-family: "Lemonada", serif;
+  font-family: "Lobster", serif;
   color: #fff; }
 
 nav {
@@ -429,7 +429,7 @@ nav {
     display: table-cell;
     vertical-align: middle; }
   nav .logo {
-    font-family: "Lemonada", serif;
+    font-family: "Lobster", serif;
     font-size: 35px;
     width: 10%; }
     nav .logo a:hover {
