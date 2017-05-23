@@ -36,6 +36,7 @@ nav {
 
   .mobile-menu {
     width:10%;
+    display:none;
 
     .icon-bar {
       display:block;
@@ -46,8 +47,8 @@ nav {
       margin:0 0 10px;
     }
 
-    @include respond(desktop) {
-      display:none;
+    @include grid-media($bp_mobile) {
+      display:table-cell;
     }
   }
 }

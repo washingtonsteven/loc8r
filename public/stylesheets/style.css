@@ -399,10 +399,16 @@ body, html {
   box-sizing: inherit; }
 
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #49a2c4;
-  color: #ccc; }
+  color: #fff; }
+
+#body-container {
+  min-height: 100%;
+  position: relative; }
+
+main {
+  padding: 50px; }
 
 a {
   color: #ffcf58;
@@ -441,7 +447,8 @@ nav {
       display: inline;
       font-size: 18px; }
   nav .mobile-menu {
-    width: 10%; }
+    width: 10%;
+    display: none; }
     nav .mobile-menu .icon-bar {
       display: block;
       width: 100%;
@@ -449,12 +456,62 @@ nav {
       height: 5px;
       background-color: #fff;
       margin: 0 0 10px; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (max-width: 768px) {
       nav .mobile-menu {
-        display: none; } }
+        display: table-cell; } }
 
-body#homelist #location-list .location .labels .label {
-  margin: 0 10px;
-  color: #034d69; }
+footer {
+  width: 100%;
+  background-color: #034d69;
+  color: #ccc;
+  padding: 10px 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 0; }
+
+body#homelist #banner {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px; }
+
+body#homelist #location-list {
+  width: calc(66.66667% - 33.33333px);
+  float: left;
+  margin-left: 20px; }
+  @media screen and (max-width: 768px) {
+    body#homelist #location-list {
+      width: calc(100%);
+      float: left;
+      margin-left: 0; } }
+  body#homelist #location-list .location:after {
+    width: 50%;
+    height: 1px;
+    margin: 25px auto;
+    display: block;
+    content: " ";
+    border-bottom: solid 1px #034d69; }
+  body#homelist #location-list .location h4 {
+    margin: 0; }
+  body#homelist #location-list .location .badge {
+    border-radius: 500px;
+    background-color: #a71d00;
+    color: #fff;
+    font-family: "Lobster", serif;
+    font-size: 15px;
+    float: right;
+    padding: 3px 10px; }
+  body#homelist #location-list .location .labels .label {
+    margin: 0 10px;
+    color: #034d69; }
+
+body#homelist #sidebar {
+  width: calc(33.33333% - 26.66667px);
+  float: left;
+  margin-left: 20px; }
+  @media screen and (max-width: 768px) {
+    body#homelist #sidebar {
+      width: calc(100%);
+      float: left;
+      margin-left: 0; } }
 
 /*# sourceMappingURL=style.css.map */

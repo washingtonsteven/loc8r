@@ -6,6 +6,18 @@ $lobster: 'Lobster', serif;
 $tablet_min:768px;
 $desktop_min:1024px;
 
+$bp_mobile: (
+  columns:12,
+  gutter:0,
+  media:'screen and (max-width: #{$tablet_min})'
+);
+
+$bp_tablet: (
+  columns:12,
+  gutter:0,
+  media:'screen and (max-width: #{$desktop_min})'
+);
+
 //colors
 $white:#fff;
 $black:#000;

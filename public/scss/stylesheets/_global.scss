@@ -9,10 +9,18 @@ body,html{
 }
 
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: $light-blue;
-  color:#ccc;
+  color:$white;
+}
+
+#body-container {
+  min-height:100%;
+  position:relative;
+}
+
+main {
+  padding:50px;
 }
 
 a {

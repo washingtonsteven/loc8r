@@ -1,13 +1,52 @@
 body#homelist {
 
+  #banner {
+    @include grid-column(12);
+  }
+
   #location-list {
+    @include grid-column(8);
+    @include grid-media($bp_mobile) {
+      @include grid-column(12);
+    }
+
     .location {
+      &:after {
+        width:50%;
+        height:1px;
+        margin:25px auto;
+        display:block;
+        content:" ";
+        border-bottom:solid 1px $dark-blue;
+      }
+
+      h4 {
+        margin:0;
+      }
+
+      .badge {
+        border-radius:500px;
+        background-color:$dark-red;
+        color:$white;
+        font-family:$lobster;
+        font-size:15px;
+        float:right;
+        padding:3px 10px
+      }
       .labels {
         .label {
           margin:0 10px;
           color:$dark-blue;
         }
       }
+    }
+  }
+
+  #sidebar {
+    @include grid-column(4);
+
+    @include grid-media($bp_mobile) {
+      @include grid-column(12);
     }
   }
 }

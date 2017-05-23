@@ -24,6 +24,7 @@ app.use(cookieParser());
 app.use(sassMiddleware({
   src: path.join(__dirname, 'public', 'scss'),
   dest: path.join(__dirname, 'public'),
+  debug:true,
   indentedSyntax: false, // true = .sass and false = .scss
   sourceMap: true
 }));
