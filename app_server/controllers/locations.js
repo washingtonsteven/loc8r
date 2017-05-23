@@ -1,12 +1,12 @@
 var locations = {
   homelist: function(req, res) {
-    res.render('homelist', {title: 'Home'});
+    res.render('homelist', {title: 'Home', body_id:"homelist"});
   },
   locationInfo: function(req, res) {
-    res.render('locationDetail', {title: 'Location detail'});
+    res.render('locationDetail', {title: 'Location detail', body_id:"locationDetail"});
   },
   addReview: function(req, res) {
-    res.render('addReview', {title: 'Add a Review'});
+    res.render('addReview', {title: 'Add a Review', body_id:"addReview"});
   }
 }
 

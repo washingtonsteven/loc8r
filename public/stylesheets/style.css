@@ -453,4 +453,8 @@ nav {
       nav .mobile-menu {
         display: none; } }
 
+body#homelist #location-list .location .labels .label {
+  margin: 0 10px;
+  color: #034d69; }
+
 /*# sourceMappingURL=style.css.map */

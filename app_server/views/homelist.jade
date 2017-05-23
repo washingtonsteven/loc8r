@@ -8,15 +8,30 @@ block content
     .location
       h4 
         a(href="/location") Starcups
-          small.stars 3.5/5 stars
+          small.stars
+            &nbsp;
+            span.fa.fa-star
+            span.fa.fa-star
+            span.fa.fa-star
+            span.fa.fa-star-half-o
+            span.fa.fa-star-o
       .address 314 Shawmut Ave, Boston, MA 02118
       .description A local cafe specializing in unique coffee drinks with a carry-out market.
       .labels
-        span.label.wifi Wifi Enabled
-        span.label.wifi-locked Needs Password
-        span.label.wifi-purchase Password Requires Purchase
-        span.label.drinks-hot Hot Drinks Available
-        span.label.alcohol Alcohol Available
-        span.label.food Food Available
-        span.label.price-high $$$
-        
+        span.label.wifi(title="Wifi Enabled")
+          span.fa.fa-wifi
+        span.label.wifi-locked(title="Needs Password") 
+          span.fa.fa-lock
+        span.label.wifi-purchase(title="Password Requires Purchase") 
+          span.fa.fa-money
+        span.label.drinks-hot(title="Hot Drinks Available") 
+          span.fa.fa-coffee
+        span.label.alcohol(title="Alcohol Available") 
+          span.fa.fa-glass
+        span.label.food(title="Food Available") 
+          span.fa.fa-cutlery 
+        span.label.fa.price(title="Very Expensive") 
+          span.fa.fa-usd
+          span.fa.fa-usd
+          span.fa.fa-usd
+
