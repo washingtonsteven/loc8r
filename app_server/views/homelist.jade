@@ -1,5 +1,22 @@
 extends layout
 
 block content
-  h1= title
-  p This is a list of locations
+  #banner.page-header
+    h1 Loc8r
+      small &nbsp;Find places with wifi near you!
+  #location-list
+    .location
+      h4 
+        a(href="/location") Starcups
+          small.stars 3.5/5 stars
+      .address 314 Shawmut Ave, Boston, MA 02118
+      .description A local cafe specializing in unique coffee drinks with a carry-out market.
+      .labels
+        span.label.wifi Wifi Enabled
+        span.label.wifi-locked Needs Password
+        span.label.wifi-purchase Password Requires Purchase
+        span.label.drinks-hot Hot Drinks Available
+        span.label.alcohol Alcohol Available
+        span.label.food Food Available
+        span.label.price-high $$$
+        
