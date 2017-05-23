@@ -1,0 +1,53 @@
+nav {
+  background-color:$dark-red;
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  min-height:75px;
+  color:$white;
+  display:table;
+  padding:0 5%;
+
+  & > * {
+    display:table-cell;
+    vertical-align:middle;
+  }
+
+  .logo {
+    font-family:$lobster;
+    font-size:35px;
+    width:10%;
+
+    a:hover {
+      text-decoration:none;
+    }
+  }
+
+  ul.nav-items {
+    list-style:none;
+    width:70%;
+
+    li.nav-item {
+      display:inline;
+      font-size:18px;
+    }
+  }
+
+  .mobile-menu {
+    width:10%;
+
+    .icon-bar {
+      display:block;
+      width:100%;
+      max-width:50px;
+      height:5px;
+      background-color:$white;
+      margin:0 0 10px;
+    }
+
+    @include respond(desktop) {
+      display:none;
+    }
+  }
+}

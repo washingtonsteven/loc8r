@@ -1,4 +1,14 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
+@import "normalize/normalize";
+
+@import "var";
+@import "mixins";
 
 @import "global";
+
+//components
+@import "components/nav";
+
+//views
+@import "views/homelist";

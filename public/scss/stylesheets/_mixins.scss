@@ -1,0 +1,10 @@
+@mixin respond($bp_name) {
+
+  @if ($bp_name == tablet) {
+    @media screen and (min-width:$tablet_min) { @content; }
+  }
+  
+  @else if ($bp_name == desktop) {
+    @media screen and (min-width:$desktop_min) { @content; }
+  }
+}
