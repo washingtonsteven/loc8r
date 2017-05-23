@@ -11,14 +11,9 @@ body#homelist {
     }
 
     .location {
-      &:after {
-        width:50%;
-        height:1px;
-        margin:25px auto;
-        display:block;
-        content:" ";
-        border-bottom:solid 1px $dark-blue;
-      }
+      background-color:$blue;
+      margin:5px;
+      padding:30px;
 
       h4 {
         margin:0;

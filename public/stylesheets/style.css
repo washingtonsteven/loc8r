@@ -483,26 +483,23 @@ body#homelist #location-list {
       width: calc(100%);
       float: left;
       margin-left: 0; } }
-  body#homelist #location-list .location:after {
-    width: 50%;
-    height: 1px;
-    margin: 25px auto;
-    display: block;
-    content: " ";
-    border-bottom: solid 1px #034d69; }
-  body#homelist #location-list .location h4 {
-    margin: 0; }
-  body#homelist #location-list .location .badge {
-    border-radius: 500px;
-    background-color: #a71d00;
-    color: #fff;
-    font-family: "Lobster", serif;
-    font-size: 15px;
-    float: right;
-    padding: 3px 10px; }
-  body#homelist #location-list .location .labels .label {
-    margin: 0 10px;
-    color: #034d69; }
+  body#homelist #location-list .location {
+    background-color: #0686b7;
+    margin: 5px;
+    padding: 30px; }
+    body#homelist #location-list .location h4 {
+      margin: 0; }
+    body#homelist #location-list .location .badge {
+      border-radius: 500px;
+      background-color: #a71d00;
+      color: #fff;
+      font-family: "Lobster", serif;
+      font-size: 15px;
+      float: right;
+      padding: 3px 10px; }
+    body#homelist #location-list .location .labels .label {
+      margin: 0 10px;
+      color: #034d69; }
 
 body#homelist #sidebar {
   width: calc(33.33333% - 26.66667px);
