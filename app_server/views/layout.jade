@@ -2,27 +2,29 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet' href='https://use.fontawesome.com/a748899e73.css')
+    link(rel='stylesheet', href='https://use.fontawesome.com/a748899e73.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body(id=body_id)
     #body-container
       nav
-        .logo
-          a(href='/') Loc8r
-        ul.nav-items
-          li.nav-item
-            a(href='/about') About
-        .mobile-menu
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
+        .nav-container
+          .logo
+            a(href='/') Loc8r
+          ul.nav-items
+            li.nav-item
+              a(href='/about') About
+          .mobile-menu
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
 
       main.main-content
         block content
 
       footer
-        span.copy
-          Copyright &copy; Steve Washington 2017 (but not really cause this comes from a book)
+        .footer-container
+          span.copy
+            Copyright &copy; Steve Washington 2017 (but not really cause this comes from a book)
 
     script(src='https://code.jquery.com/jquery-3.2.1.min.js')
     script(src='/js/main.js')

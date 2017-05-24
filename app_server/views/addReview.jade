@@ -1,5 +1,26 @@
 extends layout
 
 block content
-  h1= title
-  p This is the add review page
+  h1 Add Review for 
+    a(href="/location") South End Buttery
+  #review-add
+    form(method="POST", action="/")
+      .rating.stars
+        span.fa.fa-star-o
+        span.fa.fa-star-o
+        span.fa.fa-star-o
+        span.fa.fa-star-o
+        span.fa.fa-star-o
+      input(type="radio", name="rating", value="1", id="1star", data-form-hidden)
+      input(type="radio", name="rating", value="2", id="2star", data-form-hidden)
+      input(type="radio", name="rating", value="3", id="3star", data-form-hidden)
+      input(type="radio", name="rating", value="4", id="4star", data-form-hidden)
+      input(type="radio", name="rating", value="5", id="5star", data-form-hidden)
+      .form-row
+        label(for="name") Your Name:
+        input.name(name="name")
+      .form-row 
+        label(for="review-content") Your Review:
+        textarea.review(name="review-content")
+      .form-row
+        input(type="submit" value="Submit")

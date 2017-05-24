@@ -1,0 +1,27 @@
+body#addReview {
+  h1 {
+    text-align:center;
+  }
+
+  form {
+    width:40%;
+    margin:0 auto;
+    display:block;
+
+    .form-row {
+      display:block;
+    }
+
+    input {
+      &[data-form-hidden] {
+        display:none;
+      }
+    }
+
+    textarea {
+      width:100%;
+      min-height:250px;
+      display:block;
+    }
+  }
+}

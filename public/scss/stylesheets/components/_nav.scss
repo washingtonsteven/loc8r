@@ -6,49 +6,56 @@ nav {
   left:0;
   min-height:75px;
   color:$white;
-  display:table;
-  padding:0 5%;
 
-  & > * {
-    display:table-cell;
-    vertical-align:middle;
-  }
+  .nav-container {
+    max-width:$max-width;
+    width:100%;
+    margin:0 auto;
+    min-height:inherit;
+    display:table;
+    padding:0 5%;
 
-  .logo {
-    font-family:$lobster;
-    font-size:35px;
-    width:10%;
-
-    a:hover {
-      text-decoration:none;
-    }
-  }
-
-  ul.nav-items {
-    list-style:none;
-    width:70%;
-
-    li.nav-item {
-      display:inline;
-      font-size:18px;
-    }
-  }
-
-  .mobile-menu {
-    width:10%;
-    display:none;
-
-    .icon-bar {
-      display:block;
-      width:100%;
-      max-width:50px;
-      height:5px;
-      background-color:$white;
-      margin:0 0 10px;
-    }
-
-    @include grid-media($bp_mobile) {
+    & > * {
       display:table-cell;
+      vertical-align:middle;
+    }
+
+    .logo {
+      font-family:$lobster;
+      font-size:35px;
+      width:10%;
+
+      a:hover {
+        text-decoration:none;
+      }
+    }
+
+    ul.nav-items {
+      list-style:none;
+      width:70%;
+
+      li.nav-item {
+        display:inline;
+        font-size:18px;
+      }
+    }
+
+    .mobile-menu {
+      width:10%;
+      display:none;
+
+      .icon-bar {
+        display:block;
+        width:100%;
+        max-width:50px;
+        height:5px;
+        background-color:$white;
+        margin:0 0 10px;
+      }
+
+      @include grid-media($bp_mobile) {
+        display:table-cell;
+      }
     }
   }
 }

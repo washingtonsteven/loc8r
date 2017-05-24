@@ -20,7 +20,12 @@ body {
 }
 
 main {
-  padding:50px;
+  padding:75px 5%;
+  overflow:auto;
+  height:auto;
+  margin:0 auto;
+  width:100%;
+  max-width:$max-width;
 }
 
 a {
@@ -33,7 +38,13 @@ a {
 }
 
 h1 {
-  font-size:50px;
+  color:$orange;
+  font-family:$lobster;
+  font-size:45px;
+}
+
+h2 {
+  font-size:28px;
   font-family:$lobster;
   color:$white;
 }

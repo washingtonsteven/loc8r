@@ -1,0 +1,106 @@
+body#locationDetail {
+  #location-info {
+    @include grid-column(7);
+
+    @include grid-media($bp_mobile) {
+      @include grid-column(12);
+    }
+
+    h3 {
+      margin:0 0 5px;
+      color:$dark-blue;
+      font-family:$lobster;
+      font-size:22px;
+      background-color:$orange;
+      padding:10px;
+    }
+
+    #hours {
+      max-width:50%;
+      @include card();
+      min-height:auto;
+      margin:0;
+      background-color:$dark-red;
+      padding:0 0 10px;
+
+      .hourset {
+        padding:0 10px;
+
+        & > .days, & > .hours {
+          display:inline-block;
+          padding:0 5px;
+        }
+
+        & > .days {
+          width:20%;
+          text-align:center;
+        }
+      }
+    }
+
+    #facilities {
+      max-width:50%;
+      @include card();
+      background-color:$dark-red;
+      margin:25px 0 0;
+      padding:0 0 10px;
+
+      .facility {
+        background-color:$orange;
+        border-radius:500px;
+        @include card();
+        min-height:auto; //overwrite card() mixin
+        margin:15px auto;
+        padding:5px;
+        width:90%;
+
+        & > span {
+          color:$dark-blue;
+          padding:0 5px;
+        }
+      }
+    }
+  }
+
+  #location-sidebar {
+    @include grid-column(5);
+
+    @include grid-media($bp_mobile) {
+      @include grid-column(12);
+    }
+
+    #location-map {
+      img {
+        max-width:100%;
+      }
+    }
+  }
+
+  #location-reviews {
+    @include grid-column(12);
+    margin:35px 0;
+
+    .review {
+      width:60%;
+      background-color:$blue;
+      @include card();
+
+      .stars {
+        color:$orange;
+      }
+
+      .name {
+        font-weight:bold;
+      }
+    }
+  }
+
+  #add-review {
+    @include grid-column(12);
+
+    button {
+      display:block;
+      margin:0 auto;
+    }
+  }
+}
