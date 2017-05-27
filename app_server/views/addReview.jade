@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1 Add Review for 
-    a(href="/location") South End Buttery
+    a(href="/location")= location.name
   #review-add
     form(method="POST", action="/")
       .rating.stars

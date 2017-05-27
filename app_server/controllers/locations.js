@@ -6,7 +6,7 @@ var locations = {
     res.render('locationDetail', {title: 'Location detail', body_id:"locationDetail", location:locationList[1], facilityIcons:facilityIcons});
   },
   addReview: function(req, res) {
-    res.render('addReview', {title: 'Add a Review', body_id:"addReview"});
+    res.render('addReview', {title: 'Add a Review', body_id:"addReview", location:locationList[1]});
   }
 }
 
