@@ -3,7 +3,7 @@ var locations = {
     res.render('homelist', {title: 'Home', body_id:"homelist", locations:locationList, facilityIcons:facilityIcons});
   },
   locationInfo: function(req, res) {
-    res.render('locationDetail', {title: 'Location detail', body_id:"locationDetail"});
+    res.render('locationDetail', {title: 'Location detail', body_id:"locationDetail", location:locationList[1], facilityIcons:facilityIcons});
   },
   addReview: function(req, res) {
     res.render('addReview', {title: 'Add a Review', body_id:"addReview"});
@@ -32,11 +32,11 @@ var locationList = [
     },
     'description':'A local cafe featuring a robust carry-out market.',
     'rating':3.5,
-    'hours':{
-      'M-F':'6am - 10pm',
-      'Sat':'8am - 8pm',
-      'Sun':'Closed'
-    },
+    'hours':[
+      {'days': 'M-F', 'hours':'6am - 10pm'},
+      {'days': 'Sat', 'hours':'8am - 6pm'},
+      {'days': 'Sun', 'hours':'closed'},
+    ],
     'facilities':['wifi', 'wifi-locked', 'wifi-purchase', 'drinks-hot', 'food'],
     'priceTier':3,
     'reviews':[
@@ -58,11 +58,11 @@ var locationList = [
     },
     'description':'A small cafe know for it\'s filling \'Wholy Bowl\'',
     'rating':4.5,
-    'hours':{
-      'M-F':'7am - 6pm',
-      'Sat':'7am - 4pm',
-      'Sun':'11am - 2pm'
-    },
+    'hours':[
+      {'days': 'M-F', 'hours':'7am - 6pm'},
+      {'days': 'Sat', 'hours':'8am - 6pm'},
+      {'days': 'Sun', 'hours':'10am - 4pm'},
+    ],
     'facilities':['wifi', 'drinks-hot', 'food'],
     'priceTier':2,
     'reviews':[

@@ -1,88 +1,44 @@
+include _includes/shared
 extends layout
 
 block content
   h2 Loc8r - Location Detail
   #location-info
-    h1 South End Buttery
+    h1= location.name
       small.stars
-        span.fa.fa-star
-        span.fa.fa-star
-        span.fa.fa-star
-        span.fa.fa-star-half-o
-        span.fa.fa-star-o
+        +rating location.rating
     #hours
       h3 Hours
-      .hourset
-        .days M-F
-        .hours 6am - 10pm
-      .hourset
-        .days Sat
-        .hours 8am - 6pm
-      .hourset
-        .days Sun
-        .hours closed
+      each hourset in location.hours
+        .hourset
+          .days= hourset.days
+          .hours= hourset.hours
     #facilities
       h3 Facilities
-      .facility.wifi
-        span.fa.fa-wifi
-        span.facility-label Wifi Available
-      .facility.wifi-locked
-        span.fa.fa-lock
-        span.facility-label Wifi Requires Password
-      .facility.wifi-purchase
-        span.fa.fa-money
-        span.facility-label Wifi Password Requires Purchase
-      .facility.drinks-hot
-        span.fa.fa-coffee
-        span.facility-label Hot Drinks Available
-      .facility.alcohol
-        span.fa.fa-glass
-        span.facility-label Alcohol Available
-      .facility.food
-        span.fa.fa-cutlery
-        span.facility-label Food Available
-      .facility.price
-        span.price-icon
-          span.fa.fa-usd
-          span.fa.fa-usd
-          span.fa.fa-usd
-        span.facility-label Very Expensive
+      each facility in location.facilities
+        .facility(class=facility)
+          span.fa(class=facilityIcons[facility])
+          span.facility-label= facility
+      - if (location.priceTier)
+        .facility.price
+          span.price-icon
+            - for (var i = 0; i < location.priceTier; i++)
+              span.fa.fa-usd
+          span.facility-label= location.priceTier
   #location-sidebar
     #location-map
-      img(src="http://maps.googleapis.com/maps/api/staticmap?center=51.455041,-0.9690884&zoom=17&size=400x350&sensor=false&markers=51.455041,-0.9690884&scale=2")
-    #address 314 Shawmut Ave, Boston, MA 02118
+      img(src="http://maps.googleapis.com/maps/api/staticmap?center=#{location.gps.lat},#{location.gps.lng}&zoom=17&size=400x350&sensor=false&markers=#{location.gps.lat},#{location.gps.lng}&scale=2")
+    #address= location.address
   #location-reviews
-    .review
-      .rating.stars
-        span.fa.fa-star
-        span.fa.fa-star
-        span.fa.fa-star
-        span.fa.fa-star-half-o
-        span.fa.fa-star-o
-      .name Bob McClursky
-      .date 2017-05-22 05:56:24PM EST
-      .review-content This place is okay. The coffee is expensive and it takes a while to get food, but it's a good place to sit and chill from the busy city for a bit.
-    .review
-      .rating.stars
-        span.fa.fa-star
-        span.fa.fa-star
-        span.fa.fa-star
-        span.fa.fa-star-half-o
-        span.fa.fa-star-o
-      .name Jane McClursky
-      .date 2017-05-21 05:56:24PM EST
-      .review-content This place is okay. The coffee is expensive and it takes a while to get food, but it's a good place to sit and chill from the busy city for a bit.
-    .review
-      .rating.stars
-        span.fa.fa-star
-        span.fa.fa-star
-        span.fa.fa-star
-        span.fa.fa-star-half-o
-        span.fa.fa-star-o
-      .name James Kirk
-      .date 2017-05-20 05:56:24PM EST
-      .review-content This place is okay. The coffee is expensive and it takes a while to get food, but it's a good place to sit and chill from the busy city for a bit.
+    each review in location.reviews
+      .review
+        .rating.stars
+          +rating(review.rating)
+        .name= review.name
+        .date= review.date
+        .review-content= review.review
+
   #add-review
     a(href="/location/review/new" method="POST")
-      button Add a review for South End Buttery!
+      button Add a review for #{location.name}!
 
