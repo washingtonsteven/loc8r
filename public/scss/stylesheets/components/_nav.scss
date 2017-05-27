@@ -6,6 +6,7 @@ nav {
   left:0;
   min-height:75px;
   color:$white;
+  z-index:$nav_index;
 
   .nav-container {
     max-width:$max-width;

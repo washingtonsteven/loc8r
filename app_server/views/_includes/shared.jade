@@ -1,0 +1,8 @@
+mixin rating(rating)
+    - for (var i = 1; i <= rating; i++)
+      span.fa.fa-star
+      - if (i+1 > rating) 
+        span.fa.fa-star-half-o
+    
+    - for (var i = Math.ceil(rating); i < 5; i++)
+      span.fa.fa-star-o

@@ -1,95 +1,27 @@
+include _includes/shared
 extends layout
 
 block content
   h2 Loc8r - Location List
   #location-list
-    .location
-      .badge 100m
-      h4 
-        a(href="/location") South End Buttery
-          small.stars
-            span.fa.fa-star
-            span.fa.fa-star
-            span.fa.fa-star
-            span.fa.fa-star-half-o
-            span.fa.fa-star-o
-      .address 314 Shawmut Ave, Boston, MA 02118
-      .description A local cafe specializing in unique coffee drinks with a carry-out market.
-      .labels
-        span.label.wifi(title="Wifi Enabled")
-          span.fa.fa-wifi
-        span.label.wifi-locked(title="Needs Password") 
-          span.fa.fa-lock
-        span.label.wifi-purchase(title="Password Requires Purchase") 
-          span.fa.fa-money
-        span.label.drinks-hot(title="Hot Drinks Available") 
-          span.fa.fa-coffee
-        span.label.alcohol(title="Alcohol Available") 
-          span.fa.fa-glass
-        span.label.food(title="Food Available") 
-          span.fa.fa-cutlery 
-        span.label.fa.price(title="Very Expensive") 
-          span.fa.fa-usd
-          span.fa.fa-usd
-          span.fa.fa-usd
-    .location
-      .badge 100m
-      h4 
-        a(href="/location") South End Buttery
-          small.stars
-            span.fa.fa-star
-            span.fa.fa-star
-            span.fa.fa-star
-            span.fa.fa-star-half-o
-            span.fa.fa-star-o
-      .address 314 Shawmut Ave, Boston, MA 02118
-      .description A local cafe specializing in unique coffee drinks with a carry-out market.
-      .labels
-        span.label.wifi(title="Wifi Enabled")
-          span.fa.fa-wifi
-        span.label.wifi-locked(title="Needs Password") 
-          span.fa.fa-lock
-        span.label.wifi-purchase(title="Password Requires Purchase") 
-          span.fa.fa-money
-        span.label.drinks-hot(title="Hot Drinks Available") 
-          span.fa.fa-coffee
-        span.label.alcohol(title="Alcohol Available") 
-          span.fa.fa-glass
-        span.label.food(title="Food Available") 
-          span.fa.fa-cutlery 
-        span.label.fa.price(title="Very Expensive") 
-          span.fa.fa-usd
-          span.fa.fa-usd
-          span.fa.fa-usd
-    .location
-      .badge 100m
-      h4 
-        a(href="/location") South End Buttery
-          small.stars
-            span.fa.fa-star
-            span.fa.fa-star
-            span.fa.fa-star
-            span.fa.fa-star-half-o
-            span.fa.fa-star-o
-      .address 314 Shawmut Ave, Boston, MA 02118
-      .description A local cafe specializing in unique coffee drinks with a carry-out market.
-      .labels
-        span.label.wifi(title="Wifi Enabled")
-          span.fa.fa-wifi
-        span.label.wifi-locked(title="Needs Password") 
-          span.fa.fa-lock
-        span.label.wifi-purchase(title="Password Requires Purchase") 
-          span.fa.fa-money
-        span.label.drinks-hot(title="Hot Drinks Available") 
-          span.fa.fa-coffee
-        span.label.alcohol(title="Alcohol Available") 
-          span.fa.fa-glass
-        span.label.food(title="Food Available") 
-          span.fa.fa-cutlery 
-        span.label.fa.price(title="Very Expensive") 
-          span.fa.fa-usd
-          span.fa.fa-usd
-          span.fa.fa-usd
+    each location in locations
+      .location
+        .badge 100m
+        h4
+          a(href="/location")= location.name
+            small.stars(data-star-rating=location.rating)
+              +rating(location.rating)
+              
+        .address= location.address
+        .description= location.description
+        .labels
+          each facility in location.facilities
+            span.label(class=facility)
+              span.fa(class=facilityIcons[facility])
+          - if (location.priceTier)
+            span.label.fa.price
+              - for (var i = 0; i < location.priceTier; i++)
+                span.fa.fa-usd
 
   #sidebar
     p.about Loc8r is awesome because it lets you steal wifi from wherever you want. It's crowdsourced and synergized and all sorts of web tech buzzwords. Try today. Follow us on Twitter.

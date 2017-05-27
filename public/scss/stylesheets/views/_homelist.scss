@@ -12,6 +12,7 @@ body#homelist {
 
     .location {
       background-color:$blue;
+      position:relative;
       @include card();
 
       h4 {

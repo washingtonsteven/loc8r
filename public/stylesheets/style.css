@@ -438,7 +438,8 @@ nav {
   top: 0;
   left: 0;
   min-height: 75px;
-  color: #fff; }
+  color: #fff;
+  z-index: 999; }
   nav .nav-container {
     max-width: 1200px;
     width: 100%;
@@ -496,8 +497,7 @@ button {
   padding: 15px;
   font-size: 25px;
   border: solid 1px #034d69;
-  cursor: pointer;
-  text-decoration: none; }
+  cursor: pointer; }
 
 body#homelist #banner {
   width: calc(100% - 40px);
@@ -515,6 +515,7 @@ body#homelist #location-list {
       margin-left: 0; } }
   body#homelist #location-list .location {
     background-color: #0686b7;
+    position: relative;
     box-shadow: 2px 2px 9px -3px #000;
     margin: 25px auto;
     padding: 15px;
