@@ -22,3 +22,5 @@ var locationSchema = new mongoose.Schema({
   priceTier:Number,
   reviews:[ratingSchema]
 });
+
+mongoose.model('Location', locationSchema);
