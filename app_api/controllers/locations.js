@@ -5,7 +5,7 @@ var Loc = mongoose.model('Location');
 
 var locationsApi = {
   locationsList:function(req, res) {
-    if (req.query.lng !== "undefined" && req.query.lat !== "undefined") {
+    if (parseFloat(req.query.lat) && parseFloat(req.query.lng)) {
       locationsApi.locationsListByDistance(req, res);
     } else {
       Loc.find(function(err, locations){
