@@ -9,7 +9,7 @@ block content
       .location
         .badge= location.distance
         h4
-          a(href="/location/"+location._id)= location.name
+          a(href="/location/#{location._id}")= location.name
             small.stars(data-star-rating=location.rating)
               +rating(location.rating)
               

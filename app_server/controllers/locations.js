@@ -6,6 +6,8 @@ if (process.env.NODE_ENV === "production") {
   apiOptions.server = "https://immense-ocean-34621.herokuapp.com";
 }
 
+
+
 var locations = {
   homelist: function(req, res) {
     request({
@@ -63,7 +65,7 @@ var locations = {
 
       console.log(loc);
       
-      res.render('locationDetail', {title: 'Location detail', body_id:"locationDetail", location:loc, facilityIcons:facilityIcons});
+      res.render('locationDetail', {title: 'Location detail', body_id:"locationDetail", location:loc, facilityIcons:facilityIcons, gmaps_api_key:process.env.GMAPS_API_KEY});
     });
   },
   addReview: function(req, res) {
