@@ -56,7 +56,7 @@ var locationsApi = {
       address:     req.body.address,
       gps:         [parseFloat(req.body.lng), parseFloat(req.body.lat)],
       description: req.body.description,
-      facilities:  req.body.facilities ? req.body.facilities.split(",") : null,
+      facilities:  req.body.facilities ? req.body.facilities.split(/[\s,]+/) : null,
       hours:       hoursObj,
       priceTier:   req.body.priceTier
     }
@@ -103,16 +103,6 @@ var locationsApi = {
         parseFloat(req.body.lat ? req.body.lat : location.gps[1])
       ];
 
-      var fac = location.facilities;
-      if (req.body.facilities) {
-        var rfac = req.body.facilities.split(",");
-        rfac.forEach(function(value, i, arr){
-          if (fac.indexOf(value) < 0) {
-            fac.push(value);
-          }
-        });
-      }
-
       var hours = location.hours;
       for (var i = 0; req.body[`hours[${i}][days]`] && req.body[`hours[${i}][hours]`]; i++) {
         if (i == 0) hours = [];
@@ -127,7 +117,7 @@ var locationsApi = {
       location.address      = req.body.address || location.address;
       location.gps          = gps;
       location.description  = req.body.description || location.description;
-      location.facilities   = fac;
+      location.facilities   = req.body.facilities.split(/[\s,]+/) || location.facilities;
       location.hours        = hours;
       location.priceTier    = req.body.priceTier || location.priceTier;
 

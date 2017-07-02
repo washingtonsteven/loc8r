@@ -6,7 +6,7 @@ block content
   #location-list
     each location in locations
       .location
-        .badge 100m
+        .badge= location.distance
         h4
           a(href="/location")= location.name
             small.stars(data-star-rating=location.rating)
@@ -17,7 +17,7 @@ block content
         .labels
           each facility in location.facilities
             span.label(class=facility)
-              span.fa(class=facilityIcons[facility])
+              span.fa(class=facilityIcons[facility.trim()])
           - if (location.priceTier)
             span.label.fa.price
               - for (var i = 0; i < location.priceTier; i++)
