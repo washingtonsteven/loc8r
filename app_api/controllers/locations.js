@@ -80,15 +80,77 @@ var locationsApi = {
       } else if (!location) {
         api_util.sendJSONResponse(res, 404, {"message": "Location not found: "+req.params.locationid});
       } else if (err) {
-        api_util.sendJSONResponse(res, 404, err);
+        api_util.sendJSONResponse(res, 400, err);
       }
     });
   },
   locationsUpdateOne:function(req, res) {
-    api_util.sendJSONResponse(res);
+    if (!req.params || !req.params.locationid) {
+      api_util.sendJSONResponse(res, 404, {"message":"No locationid provided."}); return;
+    }
+
+    Loc.findById(req.params.locationid).select("-reviews -rating").exec(function(err, location){
+      if (err) {
+        api_util.sendJSONResponse(res, 400, err); return;
+      } else if (!location) {
+        api_util.sendJSONResponse(res, 404, {"message":"Location not found: "+req.params.locationid}); return;
+      }
+
+      console.log(location);
+
+      var gps = [
+        parseFloat(req.body.lng ? req.body.lng : location.gps[0]),
+        parseFloat(req.body.lat ? req.body.lat : location.gps[1])
+      ];
+
+      var fac = location.facilities;
+      if (req.body.facilities) {
+        var rfac = req.body.facilities.split(",");
+        rfac.forEach(function(value, i, arr){
+          if (fac.indexOf(value) < 0) {
+            fac.push(value);
+          }
+        });
+      }
+
+      var hours = location.hours;
+      for (var i = 0; req.body[`hours[${i}][days]`] && req.body[`hours[${i}][hours]`]; i++) {
+        if (i == 0) hours = [];
+        hours.push({
+          days:req.body[`hours[${i}][days]`],
+          hours:req.body[`hours[${i}][hours]`]
+        })
+      }
+
+
+      location.name         = req.body.name || location.name;
+      location.address      = req.body.address || location.address;
+      location.gps          = gps;
+      location.description  = req.body.description || location.description;
+      location.facilities   = fac;
+      location.hours        = hours;
+      location.priceTier    = req.body.priceTier || location.priceTier;
+
+      location.save(function(err, location){
+        if (err) {
+          api_util.sendJSONResponse(res, 404, err);
+        } else {
+          api_util.sendJSONResponse(res, 200, location)
+        }
+      });
+    });
   },
   locationsDeleteOne:function(req, res) {
-    api_util.sendJSONResponse(res);
+    if (!req.params || !req.params.locationid) {
+      api_util.sendJSONResponse(res, 404, {"message":"No locationid provided."}); return;
+    }
+
+    Loc.findByIdAndRemove(req.params.locationid).exec(function(err){
+      if (err) {
+        api_util.sendJSONResponse(res, 400, err); return;
+      }
+      api_util.sendJSONResponse(res, 204, null);
+    });
   },
   pruneGeoResults: function(results) {
     var locations = []
