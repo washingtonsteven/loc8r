@@ -151,6 +151,7 @@ var locationsApi = {
         address:doc.obj.address,
         rating:doc.obj.rating,
         facilities:doc.obj.facilities,
+        description:doc.obj.description,
         _id:doc.obj._id
       });
     });

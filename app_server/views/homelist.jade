@@ -4,11 +4,12 @@ extends layout
 block content
   h2 Loc8r - Location List
   #location-list
+    .error= message
     each location in locations
       .location
         .badge= location.distance
         h4
-          a(href="/location")= location.name
+          a(href="/location/"+location._id)= location.name
             small.stars(data-star-rating=location.rating)
               +rating(location.rating)
               

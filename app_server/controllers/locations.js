@@ -17,24 +17,78 @@ var locations = {
         lat:42.377131
       }
     }, function(err, response, body){
+      var locList = [];
+      var message = "";
+
       if (err) {
         console.log(err);
-      } else if (response.statusCode === 200) {
-        var locList = body
-        for (var i = 0; i < locList.length; i++) {
-          locList[i].distance = formatDistance(locList[i].distance);
-        }
-        res.render('homelist', {title: 'Home', body_id:"homelist", locations:locList, facilityIcons:facilityIcons});
+        message = "Error calling for list of locations.";
+      } else if (response.statusCode === 200 && body) {
+        if (!body.length) {
+          message = "No places found nearby.";
+        } else {
+          locList = body
+          for (var i = 0; i < locList.length; i++) {
+            locList[i].distance = formatDistance(locList[i].distance);
+          }
+        }   
       } else {
         console.log(response.statusCode);
+        message = "API Error (GET /locations): "+response.statusCode;
       }
+
+      res.render('homelist', {title: 'Home', body_id:"homelist", locations:locList, facilityIcons:facilityIcons, message:message});
     });
   },
   locationInfo: function(req, res) {
-    res.render('locationDetail', {title: 'Location detail', body_id:"locationDetail", location:locationList[1], facilityIcons:facilityIcons});
+    request({
+      url:apiOptions.server+"/api/locations/"+req.params.locationid,
+      method:"GET",
+      json:{},
+      qs:{}
+    }, function(err, response, body){
+      var loc = null;
+      var message = "";
+
+      if (err) {
+        console.log(err);
+        message = "Error calling for list of locations.";
+      } else if (response.statusCode === 200) {
+        var loc = body;
+        loc.distance = formatDistance(loc.distance);
+      } else {
+        console.log(response.statusCode);
+        message = "API Error (GET location/"+req.params.locationid+"): "+response.statusCode;
+      }
+
+      console.log(loc);
+      
+      res.render('locationDetail', {title: 'Location detail', body_id:"locationDetail", location:loc, facilityIcons:facilityIcons});
+    });
   },
   addReview: function(req, res) {
-    res.render('addReview', {title: 'Add a Review', body_id:"addReview", location:locationList[1]});
+    request({
+      url:apiOptions.server+"/api/locations/"+req.params.locationid,
+      method:"GET",
+      json:{},
+      qs:{}
+    }, function(err, response, body){
+      var loc = null;
+      var message = "";
+
+      if (err) {
+        console.log(err);
+        message = "Error calling for list of locations.";
+      } else if (response.statusCode === 200) {
+        var loc = body;
+        loc.distance = formatDistance(loc.distance);
+      } else {
+        console.log(response.statusCode);
+        message = "API Error (GET location/"+req.params.locationid+"): "+response.statusCode;
+      }
+
+      res.render('addReview', {title: 'Add a Review', body_id:"addReview", location:loc});
+    });
   }
 }
 

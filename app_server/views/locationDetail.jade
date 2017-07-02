@@ -27,7 +27,7 @@ block content
           span.facility-label= location.priceTier
   #location-sidebar
     #location-map
-      img(src="http://maps.googleapis.com/maps/api/staticmap?center=#{location.gps.lat},#{location.gps.lng}&zoom=17&size=400x350&sensor=false&markers=#{location.gps.lat},#{location.gps.lng}&scale=2")
+      img(src="http://maps.googleapis.com/maps/api/staticmap?center=#{location.gps[1]},#{location.gps[0]}&zoom=17&size=400x350&sensor=false&markers=#{location.gps[1]},#{location.gps[0]}&scale=2")
     #address= location.address
   #location-reviews
     each review in location.reviews

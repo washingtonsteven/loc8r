@@ -8,8 +8,8 @@ var ctrlOthers = require('../controllers/others');
 
 /* Locations */
 router.get('/', ctrlLocations.homelist);
-router.get('/location', ctrlLocations.locationInfo);
-router.get('/location/review/new', ctrlLocations.addReview);
+router.get('/location/:locationid', ctrlLocations.locationInfo);
+router.get('/location/:locationid/review/new', ctrlLocations.addReview);
 
 /* Others */
 router.get('/about', ctrlOthers.about);
